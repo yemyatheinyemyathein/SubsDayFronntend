@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { AuthResponse, Subscription, Stats } from '@/types';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://subs-day-backend.vercel.app/api',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -21,7 +21,7 @@ api.interceptors.response.use(
     if (error.response?.status === 401) {
       const currentPath = window.location.pathname;
       const isAuthRoute = currentPath === '/login' || currentPath === '/register';
-      const requestUrl = error.config?.url || '';
+      const requestUrl = error.config?.url || 'https://subs-day-backend.vercel.app';
       const isMeEndpoint = requestUrl.includes('/auth/me');
 
       if (!isAuthRoute && !isMeEndpoint) {

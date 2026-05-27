@@ -13,7 +13,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://subs-day-backend.vercel.app',
         changeOrigin: true,
         cookieDomainRewrite: 'localhost',
       },
@@ -23,7 +23,7 @@ export default defineConfig({
     port: 4173,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://subs-day-backend.vercel.app',
         changeOrigin: true,
       },
     },
